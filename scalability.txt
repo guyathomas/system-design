@@ -8,6 +8,7 @@ Harvard web development
 - Horizontal scaling
 	- add more machines or HDD's to the system
 	- Can use a load balancer (which will have the public IP) to route the requests to the horizontally scaled servers
+	- Load balancing (Free to use HA Proxy)
 		- Send based on load, round robin, origin, etc...
 			- Problems / gotchyas
 				- All systems need to be identical ()
@@ -17,4 +18,22 @@ Harvard web development
 						- Might get unlucky because some server may get it's requests cached by the browser where as another one's may not
 						- Sessions are unique to each machine, so having multiple machines can mean that each machine has it's own unique session (and a user may have to log in multiple times, add items to cart multiple times, etc...)
 				- Possible to have a shared HDD for all servers that stores the session state for each client
+				- Can store the ID of the server in a cookie
+					- If I store the IP address of the server then that is vulnerable because the IP address could change and it's not great to let people know the scheme of our internal IP address
+					- Instead store a hash which the load balancer remembers where to route it
+					- Will fail if cookies are disabled
+- Caching
+	- Can be an issue if the info is cached but the value has changed
+	- File based caching (craigs list serves a static HTML)
+		- Super quick to serve up
+		- Redundancy in that every file has the same header, footer, etc... so this increases disk space
+		- If you want to change the page, then you need to recreate all of the pages stored in craigs list
+	- Memcache
+		
+
 - CDN's for static files
+
+RAID
+- RAID0 (Write half of the data to each of two drives to 'double' the HDD speed)
+- RAID1 (Write the exact same data to two HDD's)
+- RAID10 (Does both of the above - 4 HDD's)
