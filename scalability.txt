@@ -29,7 +29,13 @@ Harvard web development
 		- Redundancy in that every file has the same header, footer, etc... so this increases disk space
 		- If you want to change the page, then you need to recreate all of the pages stored in craigs list
 	- Memcache
-		
+		- Typically much faster, however smaller
+		- Cache the queries to the database
+		- When near full, could remove last recently used or first added
+	- Master and multiple slave databases are useful for systems that are read heavy and not write heavy
+		- When there is a read query it can propigate to any of the slaves
+		- A write query can perform only on the master (and then the slaves will be updated accordingly)
+
 
 - CDN's for static files
 
