@@ -32,11 +32,22 @@ Harvard web development
 		- Typically much faster, however smaller
 		- Cache the queries to the database
 		- When near full, could remove last recently used or first added
-	- Master and multiple slave databases are useful for systems that are read heavy and not write heavy
+- Database replication
+	- 1 master and multiple slaves
+		- Redundancy in only slaves
+		- Useful for systems that are read heavy and not write heavy
 		- When there is a read query it can propigate to any of the slaves
 		- A write query can perform only on the master (and then the slaves will be updated accordingly)
-
-
+	- 2 masters and multiple slaves (they each have unique slaves)
+		- Redundancy in slaves and master
+- Load balancers
+	- Active passive
+		- One is active and the passive one recieves frequent communication from the active one (a heartbeat)
+		- When the heartbeat stops, the passive one assumes full responsibility
+	- ACtive active
+		- Both recieve traffic, and when one stops recieving a heartbeat, it assumes the other has died and takes full responsibility of incoming connections
+- Database partitioning
+	- Store some data based on criteria (i.e. users A-L in one DB and users M-Z in another server)
 - CDN's for static files
 
 RAID

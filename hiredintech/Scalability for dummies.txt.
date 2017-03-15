@@ -1,0 +1,8 @@
+Part 1 - Clones
+- Each server is required to be identical
+- Pushing updates to all servers can be tricky
+- Sessions need to be stored in a centralized data store which is accessible to all applications servers
+
+Part 2 - Databases
+- Path 1: Write to the master and read from the slaves and keep upping the resources (RAM and HDD space) until sharding or denormalization can help a bit or:
+- Path 2: Denormalize and don't include any joins in a database query. Chose a NoSQL DB like Mongo for easier scaling. Joins now need to be done in application code. Eventually a cache will need to be introduced.
