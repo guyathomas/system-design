@@ -1,0 +1,18 @@
+Sharding
+
+Advantages
+- High availability. If one box goes down the others still operate.
+- Faster queries. Smaller amounts of data in each user group mean faster querying.
+- More write bandwidth. With no master database serializing writes you can write in.
+- You can do more work. A parallel backend means you can do more work simultaneously.
+
+How Is Sharding Different Than Traditional Architectures?
+- Data are denormalized. Traditionally we normalize data. Data are splayed out into anomaly-less tables and then joined back together again when they need to be used.
+- Data are parallelized across many physical instances. With sharding the data are parallelized and you scale by scaling out. Using this approach you can get massively more work done because it can be done in parallel.
+- Data are kept small. By isolating data into smaller shards the data you are accessing is more likely to stay in cache. 
+- Data are more highly available. Since the shards are independent a failure in one doesn't cause a failure in another. Obviously the master becomes the write bottleneck and a single point of failure.
+
+Some Problems With Sharding
+- Rebalancing data. What happens when a shard outgrows your storage and needs to be split?
+- Joining data from multiple shards. To create a complex friends page, or a user profile page, or a thread discussion page, you usually must pull together lots of different data from many different sources. Thankfully, because of caching and fast networks this process is usually fast enough that your page load times can be excellent.
+- How do you partition your data in shards? What data do you put in which shard? Where do comments go? Should all user data really go together, or just their profile data?
