@@ -1,0 +1,13 @@
+Scalability
+
+Harvard web development
+- Vertical scaling
+	- increasing the power of resources
+	- i.e. increased HDD size or ram
+	- faces real world constraints such as an upper limit on processor speed. can also be very costly
+- Horizontal scaling
+	- add more machines or HDD's to the system
+	- Can use a load balancer (which will have the public IP) to route the requests to the horizontally scaled servers
+		- Send based on load, round robin, origin, etc...
+- CDN's for static files
+	
