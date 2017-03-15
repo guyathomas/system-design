@@ -9,5 +9,12 @@ Harvard web development
 	- add more machines or HDD's to the system
 	- Can use a load balancer (which will have the public IP) to route the requests to the horizontally scaled servers
 		- Send based on load, round robin, origin, etc...
+			- Problems / gotchyas
+				- All systems need to be identical ()
+				- Depending on the load balancing technique
+					- Round robin
+						- Some servers may get uneven load if there are power users.
+						- Might get unlucky because some server may get it's requests cached by the browser where as another one's may not
+						- Sessions are unique to each machine, so having multiple machines can mean that each machine has it's own unique session (and a user may have to log in multiple times, add items to cart multiple times, etc...)
+				- Possible to have a shared HDD for all servers that stores the session state for each client
 - CDN's for static files
-	
