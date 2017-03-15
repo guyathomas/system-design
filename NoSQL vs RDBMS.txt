@@ -1,0 +1,18 @@
+NoSQL
+- Document based, key-value based, graph based or wide colums (along with others by Amazon and Google) which do not have strict schemas to adhere to.
+- SQL databases are vertically scaleable, where as NoSQL databases are horizontally scaleable.
+- SQL databases are good for complex queries where as NoSQL databases are not good for complex queries.
+- NoSQL databases do not have have standard interfaces for performing complex queries.
+- For high transactional based application: SQL databases are best fit for heavy duty transactional type applications, as it is more stable and promises the atomicity as well as integrity of the data.
+- ACID (Atomicity, Consistency, Isolation and Durability) properties for SQL and CAP for NoSQL (Consistency, Availability and Partition tolerance)
+
+ACID
+- Atomicity means that you can guarantee that all of a transaction happens, or none of it does; you can do complex operations as one single unit, all or nothing, and a crash, power failure, error, or anything else won't allow you to be in a state in which only some of the related changes have happened.
+- Consistency means that you guarantee that your data will be consistent; none of the constraints you have on related data will ever be violated.
+- Isolation means that one transaction cannot read data from another transaction that is not yet completed. If two transactions are executing concurrently, each one will see the world as if they were executing sequentially, and if one needs to read data that is written by another, it will have to wait until the other is finished.
+- Durability means that once a transaction is complete, it is guaranteed that all of the changes have been recorded to a durable medium (such as a hard disk), and the fact that the transaction has been completed is likewise recorded.
+
+
+- Consistency means every read would get you the most recent write
+- Availability means every node (if not failed) always executes queries
+- Consistency means even if the connections between nodes are down, the other two (A & C) promises, are kept.
