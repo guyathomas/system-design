@@ -1,0 +1,31 @@
+Step 1: Scope the problem: Don't make assumptions; Ask questions; Understand the constraints and use cases.
+- Use cases
+	- In Scope
+		- Shortening 
+		- Redirect
+		- Custom URL
+		- High availability
+	- Out of scope
+		- Deleting Shortened
+- Determine traffic & storage
+	- 10% shortening, 90% redirect
+	- Requests per second = 400
+	- 6 Billion urls in 5 years
+	- 500 bytes per URL
+	- 6 bytes per hash
+	- 3TB for all URL's
+	- 36GB for all URL's
+	- Data written per second 40 * (500 + 6) = 20k
+	- Data read per second 360 * 506 = 180k
+Step 2: Sketch up an abstract design that illustrates the basic components of the system and the relationships between them.
+	- Application service layer
+		- Shortening service
+		- Redirection service
+	- Data storage layer
+		- Acts like a hash table
+		- Maps hashes to URLs
+Step 3: Think about the bottlenecks these components face when the system scales.
+	- Bottlenecks (weigh up traffic vs data)
+		- Traffic will be managable, but querying 36TB of data will be more interesting
+Step 4: Address these bottlenecks by using the fundamentals principles of scalable system design.
+	- Talk about scaling the design (sharding,etc...)
