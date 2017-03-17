@@ -1,0 +1,7 @@
+What I did wrong:
+- I didn't have a cache for the videos
+- Didn't have a cache for the web requests
+
+Originally started in AWS, then moved to Akamai, and then moved into their own datacenters.
+Moved out of AWS because: 1) the cost, 2) the network was too slow for their needs. Live video is bandwidth intensive so having a fast, reliable, consistent, low latency network is key. With AWS you have no control over these factors. Your are running on a shared network that is vastly over subscribed, they couldn't do more than 300 Mbps. They really like the ability to dynamically scale and the cloud API, but couldn't get over the performance and cost issues.
+Three years ago they calculated their cost per customer with the various solutions as: CDN $.135, AWS $.0074 Datacenter $.0017. The CDN cost has gone down, but their datacenter cost is roughly the same.
